@@ -1,0 +1,36 @@
+void main(){
+      var nPerCarton,nLight,nHeavy,nMedium,nPacked,count:int;
+      var totalWeight,w:real;
+      nPerCarton = 5;
+      nLight = 0;
+      nHeavy = 0;
+      nMedium = 0;
+      nPacked = 0;
+      count = 0;
+      totalWeight = 0.0;
+      w = 0.0;
+
+      while (nPacked < nPerCarton) {
+            w=unifReal(0.8,1.2);
+            totalWeight=totalWeight+w;
+            if(w>=0.9){
+                  if(w<=1.1){
+                        nMedium=nMedium+1;
+                        nPacked=nPacked+1;
+                  }
+            }
+            if(w>=1.1){
+                  if(nHeavy<=nLight){
+                        nHeavy=nHeavy+1;
+                        nPacked=nPacked+1;
+                  }
+            }
+            if(w<=0.9){
+                  if(nLight<=nHeavy){
+                        nLight=nLight+1;
+                        nPacked=nPacked+1;
+                  }
+            }
+            count=count+1;
+      }
+}

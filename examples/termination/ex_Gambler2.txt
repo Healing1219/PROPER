@@ -1,0 +1,13 @@
+void main(){
+      var money,y,prob:int;
+      money=10;
+      while (money>0){
+            y=unifReal(1,money);
+            prob=R(1,-1,0.49,0.51);
+            if(prob>0){
+                 money=money+y;
+            }else{
+                 money=money-y;
+            }
+      }
+}
