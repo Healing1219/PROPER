@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<accessrules>
+			<accessrule kind="accessible" pattern="javafx/**"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="E:/Program Files/Matlab2018a/toolbox/javabuilder/jar/javabuilder.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/nonlinear.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/lp_solve_5.5_java/lib/lpsolve55j.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1-javadoc.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1-tests.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1-test-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/project/eclipse_workspace/Pro-develop/lib/commons-math3-3.6.1-bin/commons-math3-3.6.1/commons-math3-3.6.1-tools.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Program Files/LINGO18/Lingo18.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

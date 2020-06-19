@@ -250,7 +250,7 @@ public class MainController {
 					consoletext.appendText("\nThis program terminates!");
 					consoletext.appendText("\nThe upper bound of expected termination time: "+(varsVal[varsVal.length-1]-Util.k));
 					double n=Util.comTerminalTime(Util.vars.size()+Util.r,50000,varsVal[varsVal.length-1]);
-					consoletext.appendText("\nN: "+n+" (termination time doesn't exceed "+time.getText()+")");
+					consoletext.appendText("\nN: "+n+" (threshold does not exceed "+time.getText()+")");
 				}else {	
 					consoletext.appendText("\n\nUnable to determine whether the program can be terminated.");
 					return;

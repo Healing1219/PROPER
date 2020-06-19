@@ -76,8 +76,8 @@
                            <font>
                               <Font size="15.0" />
                            </font></Text>
-	                 <Label layoutX="30.0" layoutY="64.0" text="Time :"/>
-	                 <TextField fx:id="time" text="0.01" layoutX="68.0" layoutY="60.0" PrefWidth="80"/>              
+	                 <Label layoutX="30.0" layoutY="64.0" text="Threshold :"/>
+	                 <TextField fx:id="time" text="0.01" layoutX="96.0" layoutY="60.0" PrefWidth="80"/>              
                      </children>
                   </AnchorPane>
                   
