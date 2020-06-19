@@ -70,11 +70,11 @@ public class MainController {
 	@FXML
 	private TextField time;
 
-	@FXML
-	private Text t4;
-	
-	@FXML
-	private Text t5;
+//	@FXML
+//	private Text t4;
+//	
+//	@FXML
+//	private Text t5;
 
 	@FXML
 	private TextArea consoletext;
@@ -190,7 +190,7 @@ public class MainController {
 				consoletext.appendText("\n\n-----------Start Calculating Path Coverage-----------");
 				pathP = Util.readData(0);
 				consoletext.appendText("\nPath Coverage: "+df.format(pathP[1])+"");
-				consoletext.appendText("\n\n-----------Start Calculating Assertion Bound-----------");
+				consoletext.appendText("\n\n-----------Start Calculating Assertion Interval-----------");
 				assertP = Util.readData(1);
 				consoletext.appendText("\n"+p+": [" + df.format(assertP[1]) + "," + df.format(assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))) + "] \n");
 				Util.appendContentToFile("\n"+p+": [" + df.format(assertP[1]) + "," + df.format(assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))) + "] \n");
@@ -198,8 +198,8 @@ public class MainController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			t4.setText("Time of Computing Bound:"+(System.currentTimeMillis() - timeVol)/1000.0+"s");
-			t5.setText("Finshed");
+//			t4.setText("Time of Computing Bound:"+(System.currentTimeMillis() - timeVol)/1000.0+"s");
+//			t5.setText("Finshed");
 		}
 	}
 	
@@ -247,7 +247,7 @@ public class MainController {
 				//终止时间
 				Util.diffBound(varsVal);
 				if(varsVal.length!=0) {
-					consoletext.appendText("\nThis program can be terminable!");
+					consoletext.appendText("\nThis program terminates!");
 					consoletext.appendText("\nThe upper bound of expected termination time: "+(varsVal[varsVal.length-1]-Util.k));
 					double n=Util.comTerminalTime(Util.vars.size()+Util.r,50000,varsVal[varsVal.length-1]);
 					consoletext.appendText("\nN: "+n+" (termination time doesn't exceed "+time.getText()+")");
@@ -302,11 +302,11 @@ public class MainController {
 			e.printStackTrace();
 		}
 		switch(m.getText()) {
-			case "carton": p="totalWeight>=5.5";break;
-			case "herman": p="count>=1";break;
-			case "framingham": p="pointsErr-points>=5";break;
-			case "sum-three": p="x>5&&y>0";break;
-			case "ckd-epi": p="f-f1>=0.1";break;
+			case "Carton": p="totalWeight>=5.5";break;
+			case "Herman": p="count>=1";break;
+			case "Framingham": p="pointsErr-points>=5";break;
+			case "Sum-three": p="x>5&&y>0";break;
+			case "Ckd-epi": p="f-f1>=0.1";break;
 		}
 		property.setText(p);
 	}

@@ -1,0 +1,14 @@
+void main(){
+      var coin,p,p1:int;
+      coin=10;
+      while (coin >=1){
+           coin=coin-1;
+           p=R(-1,1,0.9995,0.0005);
+           if(p>0){
+                 p1=R(-1,1,0.01,0.99);
+                 if(p1>0){
+                       coin=coin+500;
+                 }
+           }
+      }
+}

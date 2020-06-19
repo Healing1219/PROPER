@@ -64,44 +64,4 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	/*public void showPath(String name, String id, int n, boolean flag) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-
-		loader.setLocation(Main.class.getResource(name));
-		TabPane page = loader.load();
-		Tab[] tabs = new Tab[n];
-		TextArea[] t = new TextArea[n];
-		int i = 0;
-
-		for (Map.Entry<ArrayList<Integer>, PathCom> entry : Util.pathMap.entrySet()) {
-			tabs[i] = new Tab("path-" + (i + 1));
-			t[i] = new TextArea();
-			String s = "";
-			ArrayList<Var> varList = entry.getValue().getVarList();
-			s += "包含" + varList.size() + "个变量: \n";
-			s = Util.readVariable(varList, s);
-			s += "\n";
-			ArrayList<ArrayList<Double>> constrainList = entry.getValue().getConstrainList();
-			s += "包含" + constrainList.size() + "个不等式约束: \n";
-			s = Util.readConstraint(constrainList, s);
-			if (flag) {
-				ArrayList<ArrayList<Double>> constrainProList = entry.getValue().getConstrainProList();
-				s = Util.readConstraint(constrainProList, s);
-			}
-			t[i].setText(s);
-			tabs[i].setContent(t[i]);
-			i++;
-		}
-
-		page.getTabs().addAll(tabs);
-
-		Stage stg = new Stage();
-		stg.setTitle(id);
-		stg.initModality(Modality.WINDOW_MODAL);
-		stg.initOwner(primaryStage);
-		Scene scene = new Scene(page);
-		stg.setScene(scene);
-		stg.showAndWait();
-	}*/
-
 }
