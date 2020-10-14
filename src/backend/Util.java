@@ -1326,10 +1326,10 @@ public class Util {
 			solver.strAddConstraint(ArrayToString(Util.inequs.get(i).coeffs), solver.EQ, Util.inequs.get(i).c);
 		}
 
-		if (Util.debug) {
-			solver.printLp();
+		//if (Util.debug) {
+			//solver.printLp();
 			System.out.println(solver.getObjective());
-		}
+		//}
 
 		double[] varsVal = new double[0];
 		if (solver.solve() == solver.OPTIMAL) {
@@ -1344,11 +1344,11 @@ public class Util {
 			System.out.println("暂无法判断该概率程序终止性");
 		} else {
 			System.out.println("T");
-			if (Util.debug) {
+			//if (Util.debug) {
 				for (int i = 0; i < varsVal.length; i++) {
 					System.out.println(varsVal[i]);
 				}
-			}
+			//}
 		}
 		double[] varsVal1 = java.util.Arrays.copyOf(varsVal, varsVal.length + 1);
 		BigDecimal b = new BigDecimal(solver.getObjective());
@@ -1483,7 +1483,7 @@ public class Util {
 				}
 			}
 			if (count > 1) {
-				id = 0;
+				id = 0;//判断是否只有一个变量
 				break;
 			}
 		}

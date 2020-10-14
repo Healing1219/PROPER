@@ -185,15 +185,15 @@ public class MainController {
 			
 			BigDecimal[] pathP = new BigDecimal[2];
 			BigDecimal[] assertP = new BigDecimal[2];
-			DecimalFormat df = new DecimalFormat("0.000000");
+			DecimalFormat df = new DecimalFormat("0.00");
 			try {
 				consoletext.appendText("\n\n-----------Start Calculating Path Coverage-----------");
 				pathP = Util.readData(0);
-				consoletext.appendText("\nPath Coverage: "+df.format(pathP[1])+"");
+				consoletext.appendText("\nPath Coverage: "+df.format(pathP[1].multiply(new BigDecimal("100")))+"%");
 				consoletext.appendText("\n\n-----------Start Calculating Assertion Interval-----------");
 				assertP = Util.readData(1);
-				consoletext.appendText("\n"+p+": [" + df.format(assertP[1]) + "," + df.format(assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))) + "] \n");
-				Util.appendContentToFile("\n"+p+": [" + df.format(assertP[1]) + "," + df.format(assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))) + "] \n");
+				consoletext.appendText("\n"+p+": [" + df.format(assertP[1].multiply(new BigDecimal("100"))) + "%, " + df.format((assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))).multiply(new BigDecimal("100"))) + "%] \n");
+				Util.appendContentToFile("\n"+p+": [" + df.format(assertP[1].multiply(new BigDecimal("100"))) + "%, " + df.format((assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))).multiply(new BigDecimal("100"))) + "%] \n");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -250,7 +250,8 @@ public class MainController {
 					consoletext.appendText("\nThis program terminates!");
 					consoletext.appendText("\nThe upper bound of expected termination time: "+(varsVal[varsVal.length-1]-Util.k));
 					double n=Util.comTerminalTime(Util.vars.size()+Util.r,50000,varsVal[varsVal.length-1]);
-					consoletext.appendText("\nN: "+n+" (threshold does not exceed "+time.getText()+")");
+					DecimalFormat df = new DecimalFormat("#.00");  
+					consoletext.appendText("\nN: "+df.format(n)+" (threshold does not exceed "+time.getText()+")");
 				}else {	
 					consoletext.appendText("\n\nUnable to determine whether the program can be terminated.");
 					return;

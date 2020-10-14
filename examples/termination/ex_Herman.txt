@@ -1,0 +1,73 @@
+void main(){
+      var p,process1, process2, process3, process4, process5, oldprocess1, oldprocess2, oldprocess3, notStable, sum, tmp: real;
+      var count: int;
+      p = 0.5;
+      process1 = 0.0;
+      process2 = 0.0;
+      process3 = 0.0;
+      process4 = 0.0;
+      process5 = 0.0;
+      notStable=0.0;
+      count = 0;
+      while(notStable >= 5.0) {
+            oldprocess1 = process1;
+            oldprocess2 = process2;
+            oldprocess3 = process3;
+            
+            if(process1 <= oldprocess3) {
+                  if(process1 >= oldprocess3) {
+                        tmp = unifReal(0,1);
+                        if(tmp <= p) {
+                              process1 = 0.0;
+                        } else {
+                              process1 = 1.0;
+                        }
+                  } else {
+                        process1 = oldprocess3;
+                  }
+            }else{
+                  process1 = oldprocess3;
+            }
+
+            if(process2 <= oldprocess1) {
+                  if(process2 >= oldprocess1) {
+                        tmp = unifReal(0,1);
+                        if(tmp <= p) {
+                              process2 = 0.0;
+                        } else {
+                              process2 = 1.0;
+                        }
+                  }else {
+                        process2 = oldprocess1;
+                  }
+            }else {
+                  process2 = oldprocess1;
+            }
+
+            if(process3 <= oldprocess2) {
+                  if(process3>=oldprocess2) {
+                        tmp = unifReal(0,1);
+                        if(tmp <= p){
+                              process3 = 0.0;
+                        } else {
+                              process3 = 1.0;
+                        }
+                  } else {
+                        process3=oldprocess2;
+                  }
+            }else{
+                  process3 = oldprocess2;
+            }
+            sum = process1 + process2;
+            sum = sum + process3;
+            if(sum < 1.0) {
+                  tmp = unifReal(0, 1);
+                  notStable = notStable + tmp;
+            } else {
+                  tmp = unifReal(1, 2);
+                 notStable = notStable + tmp;
+            }   
+             
+            count = count + 1;
+      }
+}

@@ -221,10 +221,10 @@ public class UnaryNodeExecutor extends BaseExecutor {
 			case CGrammarInitializer.Name_TO_Unary:
 				symbol = (Symbol) root.getAttribute(ICodeKey.SYMBOL);
 				if (symbol != null) {
-					if (isReadVar) {
+					/*if (isReadVar) {
 						if (!Util.vars.containsKey(symbol.getName()))
 							Util.vars.put(symbol.getName(), new Util.R(Util.vars.size() + 1));
-					}
+					}*/
 
 					Object v = symbol.getValue();
 					root.setAttribute(ICodeKey.VALUE, v);
@@ -270,9 +270,9 @@ public class UnaryNodeExecutor extends BaseExecutor {
 					ArrayList<Object> argList = (ArrayList<Object>) argsNode.getAttribute(ICodeKey.VALUE);
 					FunctionArgumentList.getFunctionArgumentList().setFuncArgList(argList);
 
-					for (int i = 0; i < argList.size(); i++) {
+					/*for (int i = 0; i < argList.size(); i++) {
 						Util.setConstant(-1 * Double.parseDouble(argList.get(i) + ""));
-					}
+					}*/
 				}
 				// 找到函数执行树头节点
 				ICodeNode func = CodeTreeBuilder.getCodeTreeBuilder().getFunctionNodeByName(funcName);

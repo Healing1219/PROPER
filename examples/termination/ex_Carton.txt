@@ -1,0 +1,36 @@
+void main() {
+      var nPer, l, h, m, nPacked, count: int;
+      var total, w: real;
+      nPer = 5;
+      l = 0;
+      h = 0;
+      m = 0;
+      nPacked = 0;
+      count = 0;
+      total = 0.0;
+      w = 0.0;
+
+      while(nPacked < nPer) {
+            w = unifReal(0.8, 6);
+            total = total + w;
+            if(w >= 0.9) {
+                  if(w <= 5) {
+                        m = m + 1;
+                        nPacked = nPacked + 1;
+                  }
+            }
+            if(w >= 1.1) {
+                  if(h <=l ) {
+                        h = h + 1;
+                        nPacked = nPacked + 1;
+                  }
+            }
+            if(w <= 0.9) {
+                  if(l <= h) {
+                        l = l + 1;
+                        nPacked = nPacked + 1;
+                  }
+            }
+            count = count + 1;
+      }
+}

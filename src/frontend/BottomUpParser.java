@@ -27,7 +27,7 @@ import lpsolve.LpSolveException;
 import nonlinear.NlpSolver;
 
 public class BottomUpParser {
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 
 		ProductionManager productionManager = ProductionManager.getProductionManager();
 		productionManager.initProductions();
@@ -44,7 +44,7 @@ public class BottomUpParser {
 		parser.parse();
 
 		// 读取性质所需变量
-		PropManager pm = new PropManager();
+/*		PropManager pm = new PropManager();
 		HashSet<Symbol> live_pro = new HashSet<Symbol>();
 //		String prop_init = "c<=8";
 //		String prop_init = "count < 1";
@@ -55,7 +55,7 @@ public class BottomUpParser {
 //		String prop_init = "f -f1 >= 0.1";
 		pm.propLex(live_pro, prop_init);//检验性质是否合法
 
-		//int iteration = 0;// 所有探寻路径数
+		int iteration = 0;// 所有探寻路径数
 		
 		for (int i = 0; i < 90;) {
 			System.out.println("iteration:"+iteration);
@@ -101,7 +101,7 @@ public class BottomUpParser {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		// 判断程序是否终止
 		if (intepretor != null) {
@@ -125,7 +125,7 @@ public class BottomUpParser {
 			if(varsVal.length!=0) {
 				double time=Util.comTerminalTime(Util.vars.size()+Util.r,50000,varsVal[varsVal.length-1]);
 				System.out.println("终止时间："+time);
-			}		
+			}	
 		}
-	}*/
+	}
 }

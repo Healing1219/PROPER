@@ -1,0 +1,11 @@
+void main() {
+      var s, s0, a, b: int;
+      s = 0;
+      s0 = 10;
+      while(s < s0) {
+              a = unifInt(1, 5);
+              b = unifInt(1, 2);
+              s =s + a;
+              s0 = s0 + b;
+      }
+}
