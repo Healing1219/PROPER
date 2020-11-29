@@ -62,7 +62,7 @@ After selecting 1, enter the program to be analyzed.（Note: the program must en
 After selecting 2, enter the assertion to be verified, such as' x > 0 & & Y > 0 '. Next, enter the program to be analyzed. （Note: the program must end with “end”）
 <img src="https://github.com/Healing1219/PROPER/blob/master/img/assertion_linux.png" width="650">
 
-For Windows, it support graphical interface, the operation is more flexible and concise. We have a [demo_video.mp](https://github.com/Healing1219/PROPER/blob/master/demo_video.mp4).
+For Windows, it support graphical interface, the operation is more flexible and concise. We have a [demo_video.mp4](https://github.com/Healing1219/PROPER/blob/master/demo_video.mp4).
 The user interface consists of four parts: Menu bar, Config, Editor and Console.  
 <img src="https://github.com/Healing1219/PROPER/blob/master/img/interface.png" width="750">
 
