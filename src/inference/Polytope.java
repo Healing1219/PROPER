@@ -95,7 +95,9 @@ public class Polytope implements Serializable {
 		boolean[] bound = new boolean[2];// isLB isUB
 		if (e.nVars() <= 0) {
 			if (e.consCoeff() < 0.0) {
-				System.err.println("Encountered 0 < 1 constraint!!");
+				if(Util.debug) {
+					System.err.println("Encountered 0 < 1 constraint!!");
+				}
 				isEmpty = true;
 			}
 			return;
@@ -103,7 +105,9 @@ public class Polytope implements Serializable {
 
 		if (e.isBoxConstraint(dim, bound)) {
 			if (bound[0]) {
-				System.out.println("constraint converted to lower bound " + dim[1]);
+				if(Util.debug) {
+					System.out.println("constraint converted to lower bound " + dim[1]);
+				}
 				if (bx.hasUpperBound((int) dim[0])) {
 					double u1 = bx.upperBound((int) dim[0]);
 					if (u1 < dim[1]) {

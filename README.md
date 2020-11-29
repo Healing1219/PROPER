@@ -36,7 +36,7 @@ For Linux：
 1.Download and unzip the folder "PROPER" into the path `$HOME`.
 
 2.Enter the "$HOME/PROPER/config" directory and execute `source lingo13.sh` 和 `source lpsolve.sh`. 
-If there are incorrect paths or other problems, please refer to "config/configure.txt" document.
+If "PROPER" is placed in a location is not $HOME in the first step, the two configuration files are not applicable and need to configured according to "config/configure.txt" document.
 
 3.After the configuration is completed, execute the command`java -jar PROPER_linux.jar` in "PROPER" directory。
 Similarly, the .jar files in the "demo/assertions" and "demo/termination" folders can be executed in the same way.

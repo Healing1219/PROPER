@@ -1,0 +1,14 @@
+void main() {
+      var s, s0, a, b, p: int;
+      s = 0;
+      s0 = 10;
+      while(s < s0){
+              a = unifInt(1, 5);
+              b = unifInt(1, 2);
+              p = 1;
+              a = a * p;
+              b = b * p;
+              s =s + a;
+              s0 = s0 + b;
+      }
+}
