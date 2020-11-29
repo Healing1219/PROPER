@@ -1,0 +1,106 @@
+assertion: points >= 10
+
+void main(){
+      var age,bpSystolic,bpSystolicError:real;
+      var hypTension,hypTensionErr:real;
+      var bmi,bmiErr,points,pointsErr:real;
+      var prInterval,prIntervalErr:real;
+      var sigMurmur,sigMurmurErr,hFail,hFailErr:real;
+      age = unifReal(45,90);
+      bpSystolic = unifReal(80,200);
+      bpSystolicError = bpSystolic + unifReal(-20,20);
+      hypTension= unifReal(0,1);
+      hypTensionErr = hypTension + unifReal(-0.05,0.05);
+      bmi=unifReal(20,40);
+      bmiErr = bmi+unifReal(-4,4);
+      prInterval =unifReal(100,250);
+      prIntervalErr = prInterval + unifReal(-10,10);
+      sigMurmur = unifReal(0.0,0.55);
+      if (sigMurmur <= 0.5)
+            hFail = unifReal(0.0,0.52);
+      else
+            hFail = unifReal (0.0,0.7);
+      sigMurmurErr = sigMurmur + unifReal(-0.01, 0.01);
+      hFailErr = hFail + unifReal(-0.01, 0.01);
+ 
+      points = 0;
+      pointsErr= 0;
+      if (age <= 49.0)
+            points = points - 3;
+      else  if (age <= 54.0)
+            points = points - 2;
+      else if(age <= 59.0)
+            points = points + 0;       
+      else if (age <= 64.0)
+            points = points + 1;
+      else if (age <= 69.0) 
+            points = points + 3;
+      else if (age <= 74.0)
+            points = points + 4;
+      else if (age <= 79.0)
+            points = points + 6;
+      else
+            points = points + 7;
+      
+      pointsErr = points;
+      if (bpSystolic >= 160.0)
+            points = points + 1;
+      if (bpSystolicError >= 160.0)
+            pointsErr = pointsErr + 1;
+      if (hypTension >= 0.5)
+            points = points + 1;
+      if (hypTensionErr >= 0.5)
+            pointsErr = pointsErr + 1;
+      if (bmi >= 30.0)
+            points = points + 1;
+      if (bmiErr >= 30.0)
+            pointsErr = pointsErr + 1;
+
+      if (prInterval >= 160.0){
+           if (prInterval <= 199.0)
+     	  points = points + 1;
+           else
+	  points = points + 2;
+      }
+      if (prIntervalErr >= 160.0){
+           if (prIntervalErr <= 199.0)
+                  pointsErr = pointsErr + 1;
+           else
+	  pointsErr = pointsErr + 2;
+      }
+
+      if (age <= 54.0){
+            if (sigMurmur >= 0.5)
+                  points = points + 5;
+            if (sigMurmurErr >= 0.5)
+                  pointsErr = pointsErr + 5;
+            if (hFail >= 0.5)
+	   points = points + 10;
+            if (hFailErr >= 0.5)
+                  pointsErr = pointsErr + 10;
+      } else if (age <= 64.0){
+            if (sigMurmur >= 0.5)
+                  points = points + 4;
+            if (sigMurmurErr >= 0.5)
+   	   pointsErr = pointsErr + 4;
+            if (hFail >= 0.5)
+   	   points = points + 6;
+            if (hFailErr >= 0.5)
+   	  pointsErr = pointsErr + 6;
+      } else if (age <= 74.0) {
+            if (sigMurmur >= 0.5)	
+                  points = points + 2;
+            if (sigMurmurErr >= 0.5)
+   	   pointsErr = pointsErr + 2;
+            if (hFail >= 0.5)
+   	   points = points + 2;
+            if (hFailErr >= 0.5) 
+   	   pointsErr = pointsErr + 2;
+      } else if (age <= 84.0){
+            if (sigMurmur >= 0.5)
+                  points = points + 1;
+            if (sigMurmurErr >= 0.5)
+   	   pointsErr = pointsErr + 1;
+      }
+}
+end

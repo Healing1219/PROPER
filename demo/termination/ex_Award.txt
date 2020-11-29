@@ -1,0 +1,13 @@
+void main(){
+      var bonus,p:int;
+      bonus=0;
+      while (bonus<=100){
+           p=unifInt(-10,1);
+           if(p<=0){
+                bonus=bonus+1;
+            }else{
+                  bonus=bonus+10;
+            }
+      }
+}
+end

@@ -1,0 +1,56 @@
+-----------------------------lingo configure----------------------------------
+
+Step 1. Unzip LINGO-LINUX-64x86-13.0.tar.gz, and you'll get the lingo13 folder.
+Go to lingo13/bin/linux64 directory and make sure all the files are in executable mode. 
+If they are not, you should change their mode by typing
+
+ chmod 755 *
+
+Step 2. Update environment variable. It is assumed that the installation directory
+is $HOME/PROPER/config/lingo13.
+
+export LD_LIBRARY_PATH=$HOME/PROPER/config/lingo13/bin/linux64:$LD_LIBRARY_PATH
+export LINGO_13_HOME=$HOME/PROPER/config/lingo13
+
+Step 3. Enter the installation directory£¨cd $HOME/PROPER/config/lingo13/bin/linux64),
+and then execute the following command.
+
+sudo ./lingovars.sh
+sudo ./symlinks.sh
+
+Step 4.Set the link of lndlng13.lic file.It is assumed that the installation directory is $HOME/PROPER/config/lingo13.
+
+cd $HOME/PROPER/config/lingo13
+sudo sh create_demo_license.sh
+
+Note: if the following prompt appears:
+[Error Code: 171] License key was not found or is invalid.
+Don't worry, reinitialize the environment variables:
+export LD_LIBRARY_PATH=$HOME/PROPER/config/lingo13/bin/linux64:$LD_LIBRARY_PATH
+export LINGO_13_HOME=$HOME/PROPER/config/lingo13
+
+Step 4. Update the $PATH environment variable.
+It is assumed that the installation directory is $HOME/PROPER/config/lingo13.
+export PATH=$PATH:$HOME/PROPER/config/lingo13/bin/linux64
+
+Enter the command ¡®lingo64_13¡¯ at the terminal£¬if the following prompt appears: command not found£¬
+Indicates that the $PATH environment variable is failed to be update¡£
+
+In addition, if the command ¡®lingo64_13¡¯ is ok, but when you execute the .jar, the following prompt appears: 
+Exception in thread "main" java.lang.UnsatisfiedLinkError: no lingojni64 in java.library.path.
+You can try enter the installation directory£¨cd $HOME/PROPER/config/lingo13/bin/linux64), and then execute sudo ./symlinks.sh
+
+-------------------------------------------lpsolve configure------------------------------------------------------------
+
+It mainly includes three compression packages, among which
+
+lp_ solve_ 5.5_ java: It includes the jar package lpsolve55j.jar developed by Java, the stub package lpsolve55j.dll for Windows platform, and libsolve55j.so for Linux platform;
+lp_ solve_ 5.5.0.14_ dev_ win64.zip: includes the dynamic link library lpsolve55.dll;
+lp_ solve_ 5.5.0.14_ dev_ ux64.tar.gz: includes libsolve55.so, a dynamic link library for Linux 64 bit platform.
+
+There are two steps in the configuration:
+
+Firstly, lpsolve55j. Jar is added to the java development environment variable CLASSPATH;
+
+Second, for windows, copy lpsolve55j.dll and lpsolve55.dll to Windows/system32 directory;
+              for Linux, copy libsolve55j.so and libsolve55.so to /usr/local/lib, and then run the ldconfig command to add user library files.

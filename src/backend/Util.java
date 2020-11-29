@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.lindo.Lingd18;
-import com.mathworks.toolbox.javabuilder.MWException;
 
 import java.util.Stack;
 
@@ -577,15 +576,15 @@ public class Util {
 		estP[0] = new BigDecimal("0.0");// estimate
 		volComp[0] = new BigDecimal("0.0");// UB
 		volComp[1] = new BigDecimal("0.0");// LB
-		appendContentToFile("\n depth \t nVar \t timePath       nExec \t nUnique \t timeVol \t LB   \t      UB \n");
+		//appendContentToFile("\n depth \t nVar \t timePath       nExec \t nUnique \t timeVol \t LB   \t      UB \n");
 
 		for (Map.Entry<ArrayList<Integer>, PathCom> entry : pathMap.entrySet()) {
 			i++;
 			try {
 				//fileWriter = new FileWriter("D:/Data/" + i + ".txt");// 创建文本文件
 				varList = entry.getValue().getVarList();
-				appendContentToFile("  " + depth + "\t  " + varList.size() + "\t      " + timePath + "\t         "
-						+ nExec + "  \t      " + pathMap.size() + "\t");
+				//appendContentToFile("  " + depth + "\t  " + varList.size() + "\t      " + timePath + "\t         "
+				//		+ nExec + "  \t      " + pathMap.size() + "\t");
 				rVar = new ArrayList<RVar>();
 				readVariable(varList, fileWriter);
 				// Collections.reverse(varList);
@@ -613,7 +612,7 @@ public class Util {
 		}
 		DecimalFormat df = new DecimalFormat("0.000000");
 		if (flag == 0) {
-			appendContentToFile("\n Path Probability: [" + df.format(volComp[1]) + "," + df.format(volComp[0]) + "] \n");
+			//appendContentToFile("\n Path Probability: [" + df.format(volComp[1]) + "," + df.format(volComp[0]) + "] \n");
 		}else {
 			//appendContentToFile("\n Estimate Probability: " + df.format(estP[0])+" \n");
 		}
@@ -776,7 +775,7 @@ public class Util {
 		return str;
 	}
 
-	public static void appendContentToFile(String info) {
+	/*public static void appendContentToFile(String info) {
 		File file = new File("D:/Data/result.txt");
 		try {
 			if (!file.exists()) {
@@ -789,7 +788,7 @@ public class Util {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	public static void addInv(int n, double d) {
 		for (int i = inv.size(); i <= n; i++) {
@@ -1314,7 +1313,11 @@ public class Util {
 	}
 
 	public static double[] computeLP(int count) throws LpSolveException {
+		double[] varsVal = new double[0];
 		int a = Util.vars.size() + ((Util.vars.size() + 1) * Util.vars.size()) / 2 + 1;
+		if(Util.inequs.size() == 0) {
+			return varsVal;
+		}
 		int nVars = Util.inequs.get(0).getCoeffs().length;
 		LpSolve solver = LpSolve.makeLp(0, nVars);// rows,columns
 		solver.strSetObjFn(ArrayToString(comObject(count)));
@@ -1326,12 +1329,11 @@ public class Util {
 			solver.strAddConstraint(ArrayToString(Util.inequs.get(i).coeffs), solver.EQ, Util.inequs.get(i).c);
 		}
 
-		//if (Util.debug) {
-			//solver.printLp();
+		if (Util.debug) {
+			solver.printLp();
 			System.out.println(solver.getObjective());
-		//}
+		}
 
-		double[] varsVal = new double[0];
 		if (solver.solve() == solver.OPTIMAL) {
 			varsVal = solver.getPtrVariables();
 			for (int i = 0; i < varsVal.length; i++) {
@@ -1341,14 +1343,14 @@ public class Util {
 		}
 
 		if (varsVal.length == 0) {
-			System.out.println("暂无法判断该概率程序终止性");
+			System.out.println("Sorry,temporarily unable to judge the termination of the probability program.");
 		} else {
-			System.out.println("T");
-			//if (Util.debug) {
+			if (Util.debug) {
+				System.out.println("T");
 				for (int i = 0; i < varsVal.length; i++) {
 					System.out.println(varsVal[i]);
 				}
-			//}
+			}
 		}
 		double[] varsVal1 = java.util.Arrays.copyOf(varsVal, varsVal.length + 1);
 		BigDecimal b = new BigDecimal(solver.getObjective());
@@ -1648,7 +1650,8 @@ public class Util {
 	}
 
 	static {
-		System.load("E:\\Program Files\\LINGO18\\Lingj64_18.dll");
+		//System.loadLibrary ( "lingojni64" );//for linux
+		System.loadLibrary ( "lingj64_18" );//for windows
 	}
 
 	public static double callLingo(String fileName) {
@@ -1657,14 +1660,16 @@ public class Util {
 		// create the Lingo environment
 		Object pnLngEnv = lng.LScreateEnvLng();
 		if (pnLngEnv == null) {
-			System.out.println("***Unable to create Lingo environment***");
+			if (Util.debug)
+				System.out.println("***Unable to create Lingo environment***");
 			return -1;
 		}
 
 		// open a log file
 		nErr = lng.LSopenLogFileLng(pnLngEnv, "lingo.log");
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LSopenLogFileLng() error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LSopenLogFileLng() error***: " + nErr);
 			return -1;
 		}
 
@@ -1673,13 +1678,15 @@ public class Util {
 		double obj[] = new double[1];
 		nErr = lng.LSsetPointerLng(pnLngEnv, obj, nPointersNow);
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LSsetPointerLng()2 error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LSsetPointerLng()2 error***: " + nErr);
 			return -1;
 		}
 		double dStatus[] = new double[1];
 		nErr = lng.LSsetPointerLng(pnLngEnv, dStatus, nPointersNow);
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LSsetPointerLng()3 error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LSsetPointerLng()3 error***: " + nErr);
 			return -1;
 		}
 
@@ -1689,23 +1696,27 @@ public class Util {
 		sScript = sScript + "QUIT" + "\n";
 		nErr = lng.LSexecuteScriptLng(pnLngEnv, sScript);
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LSexecuteScriptLng() error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LSexecuteScriptLng() error***: " + nErr);
 			return -1;
 		}
 		nErr = lng.LSclearPointersLng(pnLngEnv);
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LSclearPointersLng() error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LSclearPointersLng() error***: " + nErr);
 			return -1;
 		}
 
 		// check the solution status
 		if (dStatus[0] != lng.LS_STATUS_GLOBAL_LNG)
-			System.out.println("***Unable to Solve*** dStatus:" + dStatus[0]);
+			if (Util.debug)
+				System.out.println("***Unable to Solve*** dStatus:" + dStatus[0]);
 
 		// close Lingo's log file
 		nErr = lng.LScloseLogFileLng(pnLngEnv);
 		if (nErr != lng.LSERR_NO_ERROR_LNG) {
-			System.out.println("***LScloseLogFileLng() error***: " + nErr);
+			if (Util.debug)
+				System.out.println("***LScloseLogFileLng() error***: " + nErr);
 			return -1;
 		}
 

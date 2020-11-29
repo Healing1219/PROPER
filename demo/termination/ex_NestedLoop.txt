@@ -1,0 +1,13 @@
+void main(){
+      var x,y,m:real;
+      x=1;
+      m=2;
+      while(x<=m){
+            y=0;
+            while(y<=1){
+                  y=y+unifReal(-0.1,0.2);
+            }
+            x=x+unifReal(-0.1,0.2);
+      }
+}
+end

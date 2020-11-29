@@ -835,7 +835,7 @@ public class Polytope implements Serializable {
 			mcBoundProbabilityRec(this, depth, numBranches, bd);
 
 			DecimalFormat df = new DecimalFormat("0.000000");
-			Util.appendContentToFile("\t  "+(System.currentTimeMillis()-startTime)+"         "+df.format(bd[1])+"\t"+df.format(bd[0])+"\t\n");
+			//Util.appendContentToFile("\t  "+(System.currentTimeMillis()-startTime)+"         "+df.format(bd[1])+"\t"+df.format(bd[0])+"\t\n");
 //			System.out.println(" Probability Upper Bound : " + bd[0]);
 //			System.out.println(" Probability Lower Bound : " + bd[1]);
 //			f.time = System.currentTimeMillis() - startTime;

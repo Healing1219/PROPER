@@ -1,0 +1,12 @@
+void main(){
+      var h,t,p:int;
+      h=5;
+      t=30;
+      while (h<=t){
+           p=Binomial(1,0.5);
+           if(p>0)
+                 h=h+unifInt(0,10);
+           t=t+1;
+      }
+}
+end

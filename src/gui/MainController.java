@@ -193,7 +193,7 @@ public class MainController {
 				consoletext.appendText("\n\n-----------Start Calculating Assertion Interval-----------");
 				assertP = Util.readData(1);
 				consoletext.appendText("\n"+p+": [" + df.format(assertP[1].multiply(new BigDecimal("100"))) + "%, " + df.format((assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))).multiply(new BigDecimal("100"))) + "%] \n");
-				Util.appendContentToFile("\n"+p+": [" + df.format(assertP[1].multiply(new BigDecimal("100"))) + "%, " + df.format((assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))).multiply(new BigDecimal("100"))) + "%] \n");
+				//Util.appendContentToFile("\n"+p+": [" + df.format(assertP[1].multiply(new BigDecimal("100"))) + "%, " + df.format((assertP[0].subtract(pathP[1]).add(new BigDecimal("1"))).multiply(new BigDecimal("100"))) + "%] \n");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
