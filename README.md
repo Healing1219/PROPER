@@ -47,10 +47,10 @@ For Windows:
 
 2.Install LINGO (the installation package has provided "config/lingo-windows-64x86-18.0.exe"), and add "lingo.exe" directory to the `$PATH `environment variable
 
-3.Add `lpsolve55j.jar` to Java development environment variable `CLASSPATH`,  copy 'lpsolve55j.dll' and 'lpsolve55.dll' to the `windows/system32` directory
+3.Add `lpsolve55j.jar` to Java development environment variable `CLASSPATH`,  copy 'lpsolve55j.dll' and 'lpsolve55.dll' to the `windows/system32` directory.
 （"config/lp_solve_5.5_java" includes jar package`lpsolve55j.jar`, and stub package `lpsolve55j.dll`; "config/lp_solve_5.5.0.14_dev_win64.zip" includes the dynamic link library `lpsolve55.dll` of windows64 platform)
 
-4. After the configuration is completed, you can use the `java -jar PROPER_windows.jar` to execute. 
+4. Since the program will read and write files during execution, `sudo Chmod 777 *` can be executed outside the "PROPER" folder. After the configuration is completed, you can use the `java -jar PROPER_windows.jar` to execute.
 (if you want to call the file in "PROPER/example" directly, the "example" directory and "PROPER_windows.jar" need to be in the same level folder)
 
 ## How to use
