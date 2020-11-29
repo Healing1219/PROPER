@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.lindo.Lingd18;
+import com.lindo.Lingd13;
 
 import java.util.Stack;
 
@@ -1650,13 +1650,13 @@ public class Util {
 	}
 
 	static {
-		//System.loadLibrary ( "lingojni64" );//for linux
-		System.loadLibrary ( "lingj64_18" );//for windows
+		System.loadLibrary ( "lingojni64" );//for linux
+		//System.loadLibrary ( "lingj64_18" );//for windows
 	}
 
 	public static double callLingo(String fileName) {
 		int nErr = 0;
-		Lingd18 lng = new Lingd18();
+		Lingd13 lng = new Lingd13();
 		// create the Lingo environment
 		Object pnLngEnv = lng.LScreateEnvLng();
 		if (pnLngEnv == null) {

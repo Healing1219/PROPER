@@ -38,7 +38,7 @@ For Linux：
 2.Enter the `$HOME/PROPER/config` directory and execute `source lingo13.sh` 和 `source lpsolve.sh`. 
 If there are incorrect paths or other problems, please refer to `config/configure.txt `document.
 
-3.After the configuration is completed, use the command`java -jar PROPER_linux.jar` to execute。
+3.After the configuration is completed, execute the command`java -jar PROPER_linux.jar` in `PROPER` directory。
 Similarly, the .jar files in the `demo/assertions` and `demo/termination` folders can be executed in the same way.
 
 For Windows: 
@@ -58,12 +58,12 @@ For Windows:
 For Linux，you need to select Termination analysis or Assertion analysis, firstly.
 After selecting 1, enter the program to be analyzed.（Note: the program must end with “end”）
 
-<img src="https://github.com/Healing1219/PROPER/blob/master/img/termination_linux.png" width="750">
+<img src="https://github.com/Healing1219/PROPER/blob/master/img/termination_linux.png" width="650">
 After selecting 2, enter the assertion to be verified, such as' x > 0 & & Y > 0 '. Next, enter the program to be analyzed. （Note: the program must end with “end”）
-<img src="https://github.com/Healing1219/PROPER/blob/master/img/assertion_linux.png" width="750">
+<img src="https://github.com/Healing1219/PROPER/blob/master/img/assertion_linux.png" width="650">
 
-For Windows, it support graphical interface, the operation is more flexible and concise.
-对于Windows支持图形界面，操作起来更灵活简洁.The user interface consists of four parts: Menu bar, Config, Editor and Console.  
+For Windows, it support graphical interface, the operation is more flexible and concise. We have a `demo_video.mp4`.
+The user interface consists of four parts: Menu bar, Config, Editor and Console.  
 <img src="https://github.com/Healing1219/PROPER/blob/master/img/interface.png" width="750">
 
 You can write directly in the editor or import local files.  
@@ -91,7 +91,7 @@ For Windows
 
 For Linux
 
-<img src="https://github.com/Healing1219/PROPER/blob/master/img/assertion_result.png" width="750">
+<img src="https://github.com/Healing1219/PROPER/blob/master/img/assertion_result.png" width="650">
 
 For Windows
 
