@@ -1,5 +1,9 @@
 package frontend;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -21,10 +25,33 @@ public class BottomUpParser {
 	static HashSet<Symbol> live_pro = new HashSet<Symbol>();
 	static int iteration = 0;// 所有探寻路径数
 	
+	static private String readFile(String strFile){
+		String code = "";
+		try {
+			File file = new File(strFile);
+			FileReader read = new FileReader(file);
+			BufferedReader br = new BufferedReader(read);
+			String temp;
+			while ((temp = br.readLine()) != null) {
+				code += temp+"\n";
+			}
+			br.close();
+		}catch(FileNotFoundException e){
+            System.err.println("The fileName or filePath is incorrect!");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+		return code;
+    }
+	
 	static private boolean checkGrammar() {
-		System.out.println("\nInput code for parsing:");
-		LRStateTableParser parser = new LRStateTableParser(new Lexer());
-		System.out.println("\n\n-----------Start Checking Grammar-----------");
+		System.out.println("\nInput fileName or filePath(Relative path from project root directory):");
+		Scanner s = new Scanner(System.in);
+		String fileName = s.nextLine();
+		String code = readFile(Util.basedir+"/"+fileName);
+		System.out.println("\n"+code);
+		LRStateTableParser parser = new LRStateTableParser(new Lexer(), code);
+		System.out.println("\n-----------Start Checking Grammar-----------");
 		return parser.parse();
 	}
 	

@@ -57,7 +57,7 @@ public class PropManager {
 						if (syml != null) {
 							live_pro.add(syml.get(0));
 						} else {
-							System.err.println("输入性质不合法！");
+							//System.err.println("输入性质不合法！");
 							return false;
 						} // if
 					} // for
