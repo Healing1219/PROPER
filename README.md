@@ -33,7 +33,7 @@ The list syntax has been used in the PROPER. We may add some other syntax in the
 
 For Linux：
 
-1.Download and unzip the folder "PROPER" into the path `$HOME`.
+1.`git clone` and get the folder "PROPER" into the path `$HOME`.
 
 2.Enter the "$HOME/PROPER/config" directory and execute `source lingo13.sh` 和 `source lpsolve.sh`. 
 If "PROPER" is placed in a location is not $HOME, you need to modify the path in 'lingo13.sh' and 'lpsolve.sh'.For details, please refer to "config/configure.txt" document.

@@ -12,4 +12,3 @@ void main(){
             z= z+1.0;
       }
 }
-end
