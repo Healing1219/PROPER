@@ -10,10 +10,13 @@ export LINGO_13_HOME={Project Path}/config/lingo13
 cd {Project Path}/config/lingo13/bin/linux64
 sudo ./lingovars.sh
 sudo ./symlinks.sh
-cd {Project Path}config/lingo13
+cd {Project Path}/config/lingo13
 sudo sh create_demo_license.sh
 export PATH=$PATH:{Project Path}/config/lingo13/bin/linux64
 cd {Project Path}/config
+# Set folder permissions
+sudo chmod 777 {Project Path}
+sudo chmod 777 {Project Path}/demo/*
 ----------------------------------------------------------------------
 
 Step 1. Unzip LINGO-LINUX-64x86-13.0.tar.gz, and you'll get the lingo13 folder.
