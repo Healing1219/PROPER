@@ -9,6 +9,5 @@ cd $HOME/PROPER/config/lingo13
 sudo sh create_demo_license.sh
 export PATH=$PATH:$HOME/PROPER/config/lingo13/bin/linux64
 cd $HOME/PROPER/config
-
 sudo chmod 777 $HOME/PROPER
 sudo chmod 777 $HOME/PROPER/demo/*
