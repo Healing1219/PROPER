@@ -38,6 +38,8 @@ For Linux：
 2.Enter the "$HOME/PROPER/config" directory and execute `source lingo13.sh` 和 `source lpsolve.sh`. 
 If "PROPER" is placed in a location is not $HOME, you need to modify the path in 'lingo13.sh' and 'lpsolve.sh'.For details, please refer to "config/configure.txt" document.
 
+Note: If there is a line break problem, it may be caused by the differences between Linux (LF) and Windows (CRLF) systems. Try to re editing via `vim` on Linux system to solve.
+
 3.Since the program will read and write files during execution, `sudo Chmod 777 *` can be executed outside the "PROPER" folder.
 After the configuration is completed, execute the command`java -jar PROPER_linux.jar` in "PROPER" directory。
 Similarly, the .jar files in the "demo/assertions" and "demo/termination" folders can be executed in the same way.
